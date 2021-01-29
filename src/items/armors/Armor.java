@@ -19,6 +19,10 @@ public class Armor {
         this.level = level;
         this.name = name;
         this.type = type;
+        this.health = (int) countArmorStats().get("hp");
+        this.strength = (int) countArmorStats().get("str");
+        this.dexterity = (int) countArmorStats().get("dex");
+        this.intelligence = (int) countArmorStats().get("int");
     }
 
     public String getType() {
@@ -69,7 +73,11 @@ public class Armor {
         this.intelligence = intelligence;
     }
 
+    public HashMap countArmorStats() {
+        return armorType.countBonusStats(this.getLevel(), this.getSlot(), this.getHealth(), this.getStrength(), this.getDexterity(), this.getIntelligence());
+    }
+
     public void setArmorPieceToSlot(HashMap itemSlots, Armor armor){
-        armorType.countBonusStats(itemSlots, armor);
+        armorType.setArmorPieceToSlot(itemSlots, armor);
     }
 }

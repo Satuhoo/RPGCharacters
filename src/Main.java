@@ -18,35 +18,13 @@ public class Main {
 
         Weapon weapon = new Weapon( "Axe", 2, new MeleeWeapon(), "Melee");
         Weapon weapon1 = new Weapon("Long bow", 3, new RangedWeapon(), "Ranged");
-        printDetails.printWeaponDetails(weapon);
-        printDetails.printWeaponDetails(weapon1);
 
         printDetails.printHeroesDetails(warrior);
-        warrior.addArmorPiece(armor);
-        warrior.attack();
-        warrior.addWeapon(weapon);
-        printDetails.printWeaponDetails(weapon);
-        warrior.attack();
         printDetails.printArmorDetails(armor);
+        warrior.addArmorPiece(armor);
         printDetails.printHeroesDetails(warrior);
-
-        printDetails.printHeroesDetails(warrior);
-        warrior.addArmorPiece(armor2);
         printDetails.printArmorDetails(armor2);
-        printDetails.printHeroesDetails(warrior);
-
-        printDetails.printHeroesDetails(warrior);
-        warrior.addArmorPiece(armor3);
-        printDetails.printArmorDetails(armor3);
-        printDetails.printHeroesDetails(warrior);
-
-        printDetails.printHeroesDetails(warrior);
-        warrior.gainXp(100);
-        printDetails.printHeroesDetails(warrior);
-        warrior.attack();
-        printDetails.printHeroesDetails(warrior);
-
-        warrior.gainXp(130);
+        warrior.addArmorPiece(armor2);
         printDetails.printHeroesDetails(warrior);
     }
 }

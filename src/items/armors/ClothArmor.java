@@ -1,16 +1,12 @@
 package items.armors;
 
-import heroesDetails.SetDetails;
-
 import java.util.HashMap;
 
 public class ClothArmor implements ArmorType{
-    SetDetails setDetails = new SetDetails();
 
     @Override
-    public void countBonusStats(HashMap itemSlots, Armor armor) {
-        int levelScaling = armor.getLevel() - 1;
-        String slot = armor.getSlot();
+    public HashMap countBonusStats(int level, String slot, int hp, int str, int dex, int intl) {
+        HashMap<String, Integer> stats = new HashMap<>();
         double pieceScaling = 1;
         if (slot.equals("Head")) {
             pieceScaling = 0.8;
@@ -18,16 +14,25 @@ public class ClothArmor implements ArmorType{
             pieceScaling = 0.6;
         }
 
-        double health = ((armor.getHealth() + 10) + levelScaling * 5) / pieceScaling;
+        double health = ((hp + 10) + level * 5) / pieceScaling;
         int intHealth = (int) health;
+        stats.put("hp", intHealth);
 
-        double intelligence = ((armor.getIntelligence() + 3) + levelScaling * 2) / pieceScaling;
+        double intelligence = ((intl + 3) + level * 2) / pieceScaling;
         int intIntelligence = (int) intelligence;
+        stats.put("int", intIntelligence);
 
-        double dexterity = ((armor.getDexterity() + 1) + levelScaling * 1) / pieceScaling;
+        double dexterity = ((dex + 1) + level * 1) / pieceScaling;
         int intDexterity = (int) dexterity;
+        stats.put("dex", intDexterity);
+        stats.put("str", 0);
+        return stats;
+    }
 
+
+    @Override
+    public void setArmorPieceToSlot(HashMap itemSlots, Armor armor) {
+        String slot = armor.getSlot();
         itemSlots.put(slot, armor);
-        setDetails.setBonusStats(armor, intHealth, 0, intDexterity, intIntelligence);
     }
 }
