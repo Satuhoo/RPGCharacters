@@ -2,9 +2,11 @@ package heroesDetails;
 
 import heroes.Hero;
 import items.armors.Armor;
+import items.weapons.Weapon;
 
 public class PrintDetails {
     public void printHeroesDetails(Hero hero){
+        System.out.println("-----------------");
         System.out.println(hero.getName() + " details: ");
         System.out.println("HP: " + hero.getHealth());
         System.out.println("Str: " + hero.getStrength());
@@ -15,6 +17,7 @@ public class PrintDetails {
     }
 
     public void printArmorDetails(Armor armor) {
+        System.out.println("-----------------");
         System.out.println("Item stats for: " + armor.getName());
         System.out.println("Armor type: " + armor.getType());
         System.out.println("Slot: " + armor.getSlot());
@@ -29,6 +32,14 @@ public class PrintDetails {
         if (armor.getIntelligence() != 0) {
             System.out.println("Bonus Int: " + armor.getIntelligence());
         }
+    }
+
+    public void printWeaponDetails(Weapon weapon) {
+        System.out.println("-----------------");
+        System.out.println("Item stats for: " + weapon.getName());
+        System.out.println("Weapon type: " + weapon.getType());
+        System.out.println("Weapon level: " + weapon.getLevel());
+        System.out.println("Damage: " + weapon.getBaseDamage());
     }
 
 }

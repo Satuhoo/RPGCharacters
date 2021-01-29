@@ -2,6 +2,7 @@ package heroes;
 
 
 import items.armors.Armor;
+import items.weapons.Weapon;
 
 import java.util.HashMap;
 
@@ -13,6 +14,7 @@ public abstract class Hero {
     public int intelligence;
     public int level;
     public int xpToNextLevel;
+    public Weapon weapon;
     HashMap<String, Armor> itemSlots = new HashMap<>();
 
     public String getName() {
@@ -71,6 +73,14 @@ public abstract class Hero {
         this.xpToNextLevel = xpToNextLevel;
     }
 
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
     public HashMap<String, Armor> getItemSlots() {
         return itemSlots;
     }
@@ -96,10 +106,9 @@ public abstract class Hero {
         itemSlots.put("Body", null);
         itemSlots.put("Head", null);
         itemSlots.put("Legs", null);
-        itemSlots.put("Weapon", null);
     }
 
-    public void addItem(Armor armor) {
+    public void addArmorPiece(Armor armor) {
         String slot = armor.getSlot();
         if (itemSlots.get(slot) != null) { //Checks if there is already armor piece in the same slot
             removeArmor(slot); //If yes, calls the method which removes old stats
@@ -123,5 +132,28 @@ public abstract class Hero {
         this.setStrength(this.getStrength() + armor.getStrength());
         this.setDexterity(this.getDexterity() + armor.getDexterity());
         this.setIntelligence(this.getIntelligence() + armor.getIntelligence());
+    }
+
+    public void addWeapon(Weapon weapon) {
+        this.setWeapon(weapon);
+    }
+
+    public void attack() {
+        System.out.println("-----------------");
+        try {
+            if (this.getWeapon().getType().equals("Melee")) {
+                double damage = this.getWeapon().getBaseDamage() + 1.5 * this.getStrength();
+                int intDamage = (int) damage;
+                System.out.println("Attacking for " + intDamage);
+            } else if (this.getWeapon().getType().equals("Ranged")) {
+                double damage = this.getWeapon().getBaseDamage() + 2 * this.getDexterity();
+                System.out.println("Attacking for " + damage);
+            } else if (this.getWeapon().getType().equals("Magic")) {
+                double damage = this.getWeapon().getBaseDamage() + 3 * this.getIntelligence();
+                System.out.println("Attacking for " + damage);
+            }
+        } catch (NullPointerException ex) {
+            System.out.println("No damage dealt");
+        }
     }
 }

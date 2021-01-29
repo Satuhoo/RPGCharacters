@@ -2,6 +2,7 @@ import heroes.*;
 import heroesDetails.*;
 import items.armors.Armor;
 import items.armors.*;
+import items.weapons.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,28 +16,35 @@ public class Main {
         Hero warrior = new Warrior();
         setDetails.setHeroesDetails(warrior, "Warrior", 150, 10, 3, 1);
 
+        Weapon weapon = new Weapon( "Axe", 2, new MeleeWeapon(), "Melee");
+        Weapon weapon1 = new Weapon("Long bow", 3, new RangedWeapon(), "Ranged");
+        printDetails.printWeaponDetails(weapon);
+        printDetails.printWeaponDetails(weapon1);
+
         printDetails.printHeroesDetails(warrior);
-        warrior.addItem(armor);
+        warrior.addArmorPiece(armor);
+        warrior.attack();
+        warrior.addWeapon(weapon);
+        printDetails.printWeaponDetails(weapon);
+        warrior.attack();
         printDetails.printArmorDetails(armor);
         printDetails.printHeroesDetails(warrior);
-        System.out.println("");
 
         printDetails.printHeroesDetails(warrior);
-        warrior.addItem(armor2);
+        warrior.addArmorPiece(armor2);
         printDetails.printArmorDetails(armor2);
         printDetails.printHeroesDetails(warrior);
-        System.out.println("");
 
         printDetails.printHeroesDetails(warrior);
-        warrior.addItem(armor3);
+        warrior.addArmorPiece(armor3);
         printDetails.printArmorDetails(armor3);
         printDetails.printHeroesDetails(warrior);
-        System.out.println("");
 
         printDetails.printHeroesDetails(warrior);
         warrior.gainXp(100);
         printDetails.printHeroesDetails(warrior);
-        System.out.println("");
+        warrior.attack();
+        printDetails.printHeroesDetails(warrior);
 
         warrior.gainXp(130);
         printDetails.printHeroesDetails(warrior);
