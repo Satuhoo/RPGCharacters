@@ -26,5 +26,9 @@ public class Main {
         printDetails.printArmorDetails(armor2);
         warrior.addArmorPiece(armor2);
         printDetails.printHeroesDetails(warrior);
+        warrior.gainXp(80);
+        printDetails.printHeroesDetails(warrior);
+        warrior.gainXp(500);
+        printDetails.printHeroesDetails(warrior);
     }
 }

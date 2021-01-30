@@ -14,6 +14,7 @@ public abstract class Hero {
     public int intelligence;
     public int level;
     public int xpToNextLevel;
+    public int gainedXp;
     public Weapon weapon;
     HashMap<String, Armor> itemSlots = new HashMap<>();
 
@@ -73,6 +74,14 @@ public abstract class Hero {
         this.xpToNextLevel = xpToNextLevel;
     }
 
+    public int getGainedXp() {
+        return gainedXp;
+    }
+
+    public void setGainedXp(int gainedXp) {
+        this.gainedXp = gainedXp;
+    }
+
     public Weapon getWeapon() {
         return weapon;
     }
@@ -85,20 +94,30 @@ public abstract class Hero {
         return itemSlots;
     }
 
-    public abstract void levelUp();
+    public abstract void upgradeStats();
 
     public void gainXp(int xp){
-        int xpToLevelUp = this.getXpToNextLevel() - xp; //Counts the difference after gained xp
-        if (xpToLevelUp < 1){ //If the difference is 0 or less, calls 'level up' method
-            this.levelUp();
-            double newValue = this.getXpToNextLevel() * 1.10; //Counts the required amount of experience for next level up
-            int intValue = (int) newValue;
-            //Sets the new amount for variable. If user got more experience than level up requires,
-            // counts it off from xpToNextLevel value
-            this.setXpToNextLevel(intValue + xpToLevelUp);
+        //Checks if amount of the previous and new values of xp is more than next level up requires
+        if (this.getGainedXp() + xp >= this.getXpToNextLevel()) {
+            this.levelUp(this.getGainedXp() + xp); //If yes, calls level up method
         } else {
-            //If gained experience is less than next level up requires, subtracts remainder from xpToNextLevel value
-            this.setXpToNextLevel(this.getXpToNextLevel() - xpToLevelUp);
+            //If gained experience is less than next level up requires, adds value of the gained xp to hero
+            this.setGainedXp(this.getGainedXp() + xp);
+        }
+    }
+
+    public void levelUp(int xp){
+        //Restarts counting the value of gained xp for next level up
+        //Sets the excess points carry over towards next level
+        this.setGainedXp(xp - this.getXpToNextLevel());
+        this.upgradeStats();
+        //Counts the required amount of experience for next level up
+        double newValue = this.getXpToNextLevel() * 1.10;
+        int intValue = (int) newValue;
+        this.setXpToNextLevel(intValue);
+        //Checks again if value of gained xp is more than next level up requires
+        if (this.getGainedXp() >= this.getXpToNextLevel()) {
+            this.levelUp(this.getGainedXp()); //If yes, calls itself again
         }
     }
 

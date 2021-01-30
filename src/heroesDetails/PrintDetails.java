@@ -13,7 +13,7 @@ public class PrintDetails {
         System.out.println("Dex: " + hero.getDexterity());
         System.out.println("Int: " + hero.getIntelligence());
         System.out.println("Lvl: " + hero.getLevel());
-        System.out.println("XP to next: " + hero.getXpToNextLevel());
+        System.out.println("XP to next: " + (hero.getXpToNextLevel() - hero.getGainedXp()));
     }
 
     public void printArmorDetails(Armor armor) {

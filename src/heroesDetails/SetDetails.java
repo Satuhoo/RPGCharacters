@@ -11,6 +11,7 @@ public class SetDetails {
         hero.setIntelligence(intelligence);
         hero.setLevel(1);
         hero.setXpToNextLevel(100);
+        hero.setGainedXp(0);
         hero.setItemSlots();
     }
 }
