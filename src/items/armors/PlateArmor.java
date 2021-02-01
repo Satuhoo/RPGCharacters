@@ -7,6 +7,7 @@ public class PlateArmor implements ArmorType {
     public HashMap countBonusStats(int level, String slot, int hp, int str, int dex, int intl) {
         HashMap<String, Integer> stats = new HashMap<>();
 
+        //Checks the slot where armor piece is equipped and defines scaling value
         double pieceScaling = 1;
         if (slot.equals("Head")) {
             pieceScaling = 0.8;
@@ -14,6 +15,8 @@ public class PlateArmor implements ArmorType {
             pieceScaling = 0.6;
         }
 
+        //Counts the bonus stats for armor piece, adds them to hashmap and
+        // scales stats based on slot where armor piece is equipped
         double health = ((hp + 30) + level * 12) / pieceScaling;
         int intHealth = (int) health;
         stats.put("hp", intHealth);

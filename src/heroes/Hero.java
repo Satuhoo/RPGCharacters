@@ -160,6 +160,8 @@ public abstract class Hero {
     public void attack() {
         System.out.println("-----------------");
         try {
+            //Checks if hero has Melee, Ranged or Magic weapon equipped and counts amount of damage
+            // based on the type of weapon
             if (this.getWeapon().getType().equals("Melee")) {
                 double damage = this.getWeapon().getBaseDamage() + 1.5 * this.getStrength();
                 int intDamage = (int) damage;
@@ -171,7 +173,7 @@ public abstract class Hero {
                 double damage = this.getWeapon().getBaseDamage() + 3 * this.getIntelligence();
                 System.out.println("Attacking for " + damage);
             }
-        } catch (NullPointerException ex) {
+        } catch (NullPointerException ex) { //If there is not weapon, prints "No damage dealt"
             System.out.println("No damage dealt");
         }
     }
