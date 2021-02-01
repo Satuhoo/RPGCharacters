@@ -1,6 +1,6 @@
 # RPG Characters
 
-##Characters
+## Characters
 Program demonstrates a simple RPG character system. There is three character classes in the program: Warrior, Ranger 
 and Mage. They all have their base stats which increase by every level. The required amount of experience is 1,1% 
 higher for every level up.
@@ -11,7 +11,7 @@ Character's stats:
 3. Dexterity
 4. Intelligence
 
-##Items
+## Items
 
 Characters have three armor piece slots (Body, Head and Legs) and one weapon slot. They can equip three armor pieces on 
 different slots at the same time, and all of them are increasing character's stats. Characters can also remove or 
@@ -32,7 +32,7 @@ Weapons:
 2. Ranged weapon
 3. Magic Weapon
 
-##Game logic
+## Game logic
 
 There is not any game logic in the program. In the main method is shown examples of characters, items and 
 functionality.
