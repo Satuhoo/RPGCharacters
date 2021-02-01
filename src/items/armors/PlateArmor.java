@@ -18,7 +18,7 @@ public class PlateArmor implements ArmorType {
         int intHealth = (int) health;
         stats.put("hp", intHealth);
 
-        double strength = ((str + 3 )+ level * 2) / pieceScaling;
+        double strength = ((str + 3) + level * 2) / pieceScaling;
         int intStrength = (int) strength;
         stats.put("str", intStrength);
 

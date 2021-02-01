@@ -16,7 +16,7 @@ public class Main {
         Hero warrior = new Warrior();
         setDetails.setHeroesDetails(warrior, "Warrior", 150, 10, 3, 1);
 
-        Weapon weapon = new Weapon( "Axe", 2, new MeleeWeapon(), "Melee");
+        Weapon weapon = new Weapon("Axe", 2, new MeleeWeapon(), "Melee");
         Weapon weapon1 = new Weapon("Long bow", 3, new RangedWeapon(), "Ranged");
 
         printDetails.printHeroesDetails(warrior);

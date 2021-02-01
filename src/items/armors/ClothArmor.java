@@ -2,7 +2,7 @@ package items.armors;
 
 import java.util.HashMap;
 
-public class ClothArmor implements ArmorType{
+public class ClothArmor implements ArmorType {
 
     @Override
     public HashMap countBonusStats(int level, String slot, int hp, int str, int dex, int intl) {

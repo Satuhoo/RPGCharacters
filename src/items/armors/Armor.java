@@ -61,7 +61,7 @@ public class Armor {
         return armorType.countBonusStats(this.getLevel(), this.getSlot(), this.getHealth(), this.getStrength(), this.getDexterity(), this.getIntelligence());
     }
 
-    public void setArmorPieceToSlot(HashMap itemSlots, Armor armor){
+    public void setArmorPieceToSlot(HashMap itemSlots, Armor armor) {
         armorType.setArmorPieceToSlot(itemSlots, armor);
     }
 }

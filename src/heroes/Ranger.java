@@ -1,6 +1,6 @@
 package heroes;
 
-public class Ranger extends Hero{
+public class Ranger extends Hero {
 
     @Override
     public void upgradeStats() {

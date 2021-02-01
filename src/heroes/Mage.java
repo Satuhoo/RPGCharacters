@@ -1,6 +1,6 @@
 package heroes;
 
-public class Mage extends Hero{
+public class Mage extends Hero {
 
     @Override
     public void upgradeStats() {

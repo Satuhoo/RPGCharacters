@@ -96,7 +96,7 @@ public abstract class Hero {
 
     public abstract void upgradeStats();
 
-    public void gainXp(int xp){
+    public void gainXp(int xp) {
         //Checks if amount of the previous and new values of xp is more than next level up requires
         if (this.getGainedXp() + xp >= this.getXpToNextLevel()) {
             this.levelUp(this.getGainedXp() + xp); //If yes, calls level up method
@@ -106,7 +106,7 @@ public abstract class Hero {
         }
     }
 
-    public void levelUp(int xp){
+    public void levelUp(int xp) {
         //Restarts counting the value of gained xp for next level up
         //Sets the excess points carry over towards next level
         this.setGainedXp(xp - this.getXpToNextLevel());
@@ -136,7 +136,7 @@ public abstract class Hero {
         updateStats(armor);
     }
 
-    public void removeArmor(String slot){
+    public void removeArmor(String slot) {
         Armor oldArmor = itemSlots.get(slot); //Searches the old armor piece from the list
         //Removes the old armor stats from hero's stats
         this.setHealth(this.getHealth() - oldArmor.getHealth());
@@ -145,7 +145,7 @@ public abstract class Hero {
         this.setIntelligence(this.getIntelligence() - oldArmor.getIntelligence());
     }
 
-    public void updateStats(Armor armor){
+    public void updateStats(Armor armor) {
         //Adds the armor stats for hero's stats
         this.setHealth(this.getHealth() + armor.getHealth());
         this.setStrength(this.getStrength() + armor.getStrength());

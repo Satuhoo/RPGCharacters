@@ -5,7 +5,7 @@ import items.armors.Armor;
 import items.weapons.Weapon;
 
 public class PrintDetails {
-    public void printHeroesDetails(Hero hero){
+    public void printHeroesDetails(Hero hero) {
         System.out.println("-----------------");
         System.out.println(hero.getName() + " details: ");
         System.out.println("HP: " + hero.getHealth());
