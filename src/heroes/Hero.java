@@ -168,10 +168,12 @@ public abstract class Hero {
                 System.out.println("Attacking for " + intDamage);
             } else if (this.getWeapon().getType().equals("Ranged")) {
                 double damage = this.getWeapon().getBaseDamage() + 2 * this.getDexterity();
-                System.out.println("Attacking for " + damage);
+                int intDamage = (int) damage;
+                System.out.println("Attacking for " + intDamage);
             } else if (this.getWeapon().getType().equals("Magic")) {
                 double damage = this.getWeapon().getBaseDamage() + 3 * this.getIntelligence();
-                System.out.println("Attacking for " + damage);
+                int intDamage = (int) damage;
+                System.out.println("Attacking for " + intDamage);
             }
         } catch (NullPointerException ex) { //If there is not weapon, prints "No damage dealt"
             System.out.println("No damage dealt");
